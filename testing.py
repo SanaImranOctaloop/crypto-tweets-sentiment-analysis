@@ -29,7 +29,7 @@ def get_sentiment(text):
         print(f"Error during sentiment analysis or caching: {e}")
         return None
 
-tweet_text = "Just bought $BTC! Excited about the future of crypto."
+tweet_text = "don't know about the future of  #SOL crypto."
 if sentiment := get_sentiment(tweet_text):
     print(f"Sentiment for tweet: {sentiment}")
 
