@@ -2,7 +2,7 @@ from pymongo import MongoClient
 import json
 
 client = MongoClient("mongodb+srv://Sana:445457@democluster.vld9i.mongodb.net/?retryWrites=true&w=majority&appName=DemoCluster")
-db = client["analysis"]
+db = client["sentiment-analysis-crypto-tweets"]
 collection = db["tweets"]
 
 with open("analyzed_tweets.json", "r", encoding="utf-8") as json_file:
