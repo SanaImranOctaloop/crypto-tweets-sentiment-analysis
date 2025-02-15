@@ -6,7 +6,6 @@ import json
 import nest_asyncio
 
 nest_asyncio.apply()
-
 load_dotenv()
 
 RAPID_API_KEY = os.getenv("TWITTER_API_KEY")
@@ -19,9 +18,7 @@ headers = {
     "X-RapidAPI-Key": RAPID_API_KEY,
     "X-RapidAPI-Host": "twitter-api45.p.rapidapi.com"
 }
-
 keywords = ["$Trump", "$BTC", "$Sol", "$ETH"]
-
 LIST_ID = "1889565942079721519"
 
 async def fetch_tweets(session, keyword):
@@ -32,9 +29,7 @@ async def fetch_tweets(session, keyword):
     }
     async with session.get(url, headers=headers, params=params) as response:
         if response.status == 200:
-            json_response = await response.json()
-            print(f"Response for keyword '{keyword}' and list_id '{LIST_ID}': {json.dumps(json_response, indent=4)}")  
-            return json_response
+            return await response.json()
         else:
             print(f"Error fetching tweets for keyword {keyword}: {response.status}")
             return None
@@ -50,11 +45,11 @@ async def main():
                 for tweet in result["timeline"]:  
                     tweet_info = {
                         "text": tweet.get("text", ""), 
-                        "username": tweet.get("screen-name", ""), 
+                        "username": tweet.get("screen_name", ""),  
                         "created_at": tweet.get("created_at", "") 
                     }
                     tweets_data.append(tweet_info)
-
+        
         with open("fetched_tweets.json", "w", encoding="utf-8") as json_file:
             json.dump(tweets_data, json_file, indent=4, ensure_ascii=False)
             print("Fetched tweets saved to fetched_tweets.json")

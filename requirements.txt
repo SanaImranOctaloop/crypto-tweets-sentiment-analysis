@@ -1,0 +1,8 @@
+aiohttp==3.8.4
+aioredis==2.0.1
+dotenv==0.21.1
+pymongo==4.5.0
+redis==4.6.0
+transformers==4.30.2
+torch==2.0.1
+numpy==1.23.5
