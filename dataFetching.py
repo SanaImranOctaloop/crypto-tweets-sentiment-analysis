@@ -30,9 +30,8 @@ async def fetch_tweets(session, keyword):
     async with session.get(url, headers=headers, params=params) as response:
         if response.status == 200:
             return await response.json()
-        else:
-            print(f"Error fetching tweets for keyword {keyword}: {response.status}")
-            return None
+        print(f"Error fetching tweets for keyword {keyword}: {response.status}")
+        return None
 
 async def main():
     async with aiohttp.ClientSession() as session:

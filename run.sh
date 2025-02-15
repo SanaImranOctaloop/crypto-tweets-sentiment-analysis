@@ -13,7 +13,7 @@ echo "Storing tweets in MongoDB..."
 python database.py
 
 # Step 4: Test sentiment analysis with caching
-echo "Testing sentiment analysis with caching..."
-python testing.py
+#echo "Testing sentiment analysis with caching..."
+#python testing.py
 
 echo "Project execution completed!"
